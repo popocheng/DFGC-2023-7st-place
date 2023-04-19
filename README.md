@@ -14,22 +14,27 @@ Team members:
 - Jincai Xu
 
 ##  2. A brief report
+Main feature extractor reference [DFGC-2022-1st-place](https://github.com/chenhanch/DFGC-2022-1st-place):
+- **Model structure**：ConvNext（convnext_xlarge_384_in22ft1k）and SwinTransformer(swin_large_patch4_window12_384_in22k), with weights pretrained on ImageNet dataset。
 
-- Model structure：ConvNext（convnext_xlarge_384_in22ft1k）and SwinTransformer(swin_large_patch4_window12_384_in22k), with weights pretrained on ImageNet dataset。
+- **Ensemble methods**：Two ConvNext at different epochs and one Swin-Transformer.
 
-- Ensemble methods：Two ConvNext at different epochs and one Swin-Transformer.
+- **Augmentation methods**：HorizontalFlip、GaussNoise、GaussianBlur
 
-- Augmentation methods：HorizontalFlip、GaussNoise、GaussianBlur
+- **Data processing**：A face detector MTCNN is used to crop the face images from video frame (enlarged the face region by a factor of 1.3). Resize the input shape to (3,384,384).
 
-- Data processing：A face detector MTCNN is used to crop the face images from video frame (enlarged the face region by a factor of 1.3). Resize the input shape to (3,384,384).
+- **Training losses**：BCELoss
 
-- Training losses：BCELoss
+Other feature extraction:
+- **File naming features**:Segment 5 features for machine learning
+- **The intercepted facial features**:(256*256) into a one-dimensional vector
+- **Training model**:XGBRegressor
+- **Training strategy**: Grid Search
+- **Ensemble strategy**: 
+  - Feature splicing: fea340+name_fea
+  - Result ensemble: Averaging the results of XGB and SVR
 
-- The dataset used for training：FF++(c23 and c40)[1]/(DeepFake、Face2Face、FaceSwap、FaceShifter、NeuralTextures)、FF++(c23)/HifiFace[2]、UADFV[3]、DF-TIMIT[4]、DeeperForensics-1.0[5]、DeepFakeDection(c23 and c40)[6]、Celeb-DF[7]、WildDeepfake[8]、DFDC[9]
-
-- **Tricks **：Don't use smaller size input、Early stop training、Larger model
-
-- References and open-source resources.
+References and open-source resources.
 
   [1] FaceForensics++: Learning to Detect Manipulated Facial Images. ICCV 2019
 
@@ -91,7 +96,11 @@ test3_fea340+namefea_XGBr.ipynb
 ```
   
   
-  
+## 4. Environment
+
+```python
+torch==1.9.0
+```
   
   
   
