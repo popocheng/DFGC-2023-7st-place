@@ -49,6 +49,8 @@ Team members:
 
   [9] The DeepFake Detection Challenge (DFDC) Dataset. Arxiv 2020.
   
+  [10] https://github.com/chenhanch/DFGC-2022-1st-place
+  
 ## 3. Usage
   
 ### 3.1 Video frame extraction
