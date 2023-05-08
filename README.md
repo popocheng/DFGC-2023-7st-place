@@ -4,7 +4,7 @@ This repo provides an solution for the DeepFake Game Competition on Visual Reali
 
 Institution: China Nanhu Academy of Electronics and Information Technology(CNAEIT)
 
-Adviser: Zifeng Xiao; Shu Xu
+Adviser: Zhifeng Xiao; Shu Xu
 
 Username: xuenhui
 
